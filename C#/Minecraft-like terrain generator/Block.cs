@@ -114,7 +114,7 @@ public class Block
     }
 
    
-    //funkcja generuje mesh na podstawie danego identyfikatora sciany
+
     Mesh GenerateBlockSide(Mesh mesh, BlockSide side, Vector2[] uv)
     {
         switch (side)
