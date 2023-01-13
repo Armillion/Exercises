@@ -28,18 +28,29 @@ class SingleList:
         # Dla pustej listy rzuca wyjątek ValueError.
         if self.head == None:
             raise ValueError("List is empty!")
+        elif self.head == self.tail:
+            a = self.head.data
+            del self.head
+            return a
         else:
             a = self.head
             while a.next != self.tail:
                 a = a.next
+            b = self.tail.data
             self.tail = a
             del a.next
+            return b
 
     def join(self, other):   # klasy O(1)
         # Węzły z listy other są przepinane do listy self na jej koniec.
         # Po zakończeniu operacji lista other ma być pusta.
-        self.tail.next = other.head
-        self.tail = other.tail
+        if self.head == None:
+            self.head = other.head
+        elif other.head == None:
+            return
+        else:
+            self.tail.next = other.head
+            self.tail = other.tail
 
     def clear(self):   # czyszczenie listy
         a = self.head

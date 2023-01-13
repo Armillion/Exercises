@@ -16,4 +16,5 @@ class RandomQueue:
     def is_full(self): return False # lista nie ma limitu miejsc
 
     def clear(self):   # czyszczenie listy
-        del self.items
+        for item in self.items:
+            self.items.remove(item)
