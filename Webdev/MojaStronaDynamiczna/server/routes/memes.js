@@ -75,9 +75,9 @@ router.get('/my-memes/', validateToken, async (req, res) => {
 	res.json(memesArray)
 })
 
-router.post('/upload', async (req, res) => {
-	const memeData = req.body
-	console.log(memeData)
+router.post('/upload', validateToken, async (req, res) => {
+	let memeData = req.body
+	memeData.author_id = req.jwt.user_id
 	await memes.create(memeData)
 	res.json(memeData)
 })

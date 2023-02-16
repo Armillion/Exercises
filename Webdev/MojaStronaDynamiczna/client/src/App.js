@@ -4,9 +4,10 @@ import Home from './pages/Home'
 import Upload from './pages/Upload'
 import MyMemes from './pages/MyMemes'
 import LogOut from './pages/LogOut'
-import Login from './pages/Login';
-import SignUp from './pages/SignUp';
-import Registered from './pages/Registered';
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
+import Registered from './pages/Registered'
+import Uploaded from './pages/Uploaded'
 
 function App() {
 	
@@ -55,6 +56,7 @@ function App() {
 					<Route path='/my-memes' exact element={<MyMemes />} />
 					<Route path='/log-out' exact element={<LogOut />} />
 					<Route path='/registered' exact element={<Registered />} />
+					<Route path='/uploaded' exact element={<Uploaded />} />
 				</Routes>
 			</Router>
 			{/* Footer */}

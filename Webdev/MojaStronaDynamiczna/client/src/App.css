@@ -4,6 +4,9 @@
   padding: 0;
   font-family: 'Arial', Arial;
   scroll-behavior: smooth;
+}
+
+body{
   background: #363636;
 }
 
@@ -236,25 +239,96 @@
   margin: 2px;
 }
 
+.wrapper_login{
+  background-color: #282828;
+}
+
 .login_container{
   display: flex;
   justify-content: center;
+  background-color: #363636;
+}
+
+.login_panel{
+  background-color: #282828;
+  color: white;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 5px;
 }
 
 .login_container input, .login_container label{
   display: block;
   margin: 10px 0;
+  background-color: #282828;
+  width: 100%;
 }
 
 .login_container input{
-  background-color: #363636;
   color: white;
   padding: 16px 20px;
 }
 
-.login_container button {
+.login_container button{
   width: 100%;
   padding: 16px 20px;
+  background-color: #282828;
+  color: white;
+}
+
+.login_container button:hover{
+  background-color: #222222;
+}
+
+.upload_title{
+  color: white;
+  text-align: center;
+  margin: 10px 0 20px;
+}
+
+.upload_meme{
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.upload_meme input {
+  width: 100%;
+}
+
+.upload_meme input[type="file"]{
+  display: none;
+}
+
+.upload_meme .input_file{
+  border: 1px solid black;
+  color: white;
+  margin: 20px 0;
+  padding: 20px 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.upload_meme button{
+  width: 100%;
+  padding: 16px 20px;
+  background-color: #282828;
+  color: white;
+  margin-top: 10px;
+}
+
+.upload_meme button:hover{
+  background-color: #222222;
+}
+
+.message {
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  margin: 50px;
+  padding: 20px 10px;
+  background-color: #282828;
 }
 
 @media screen and (max-width: 1000px) {

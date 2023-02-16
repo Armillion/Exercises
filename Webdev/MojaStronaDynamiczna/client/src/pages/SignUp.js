@@ -17,10 +17,8 @@ function SignUp() {
 	const onSubmit = (login_data) => {
 		
 		if (document.getElementById ('inputPassword').value !== document.getElementById ('inputPassword2').value) {
-			console.log ("nie zgodne")
+			document.getElementById('errorPasswd2').innerHTML = "Passwords doesn't match!"
 			return
-		} else {
-			console.log ("zgodne")
 		}
 		
 		axios.post('http://localhost:3001/users/register', login_data).then((response) => {
@@ -41,30 +39,31 @@ function SignUp() {
 		<main>
 			<div className='wrapper-login'>
 				<div className='login_container'>
-					<h2>Register new account</h2>
-				</div>
-				<div className='login_container'>
-					<Formik
-						initialValues={ initialValues }
-						onSubmit={ onSubmit }
-						validationSchema={ validationSchema }
-					>
-						<Form>
-							<label>Email:</label>
-							<ErrorMessage name='email' component='span' />
-							<Field id='inputEmail' name='email' placeholder='example@example.com'></Field>
-							<label>Username:</label>
-							<ErrorMessage name='username' component='span' />
-							<Field id='inputUsername' name='username'></Field>
-							<label>Password:</label>
-							<ErrorMessage name='password' component='span' />
-							<Field id='inputPassword' name='password' type='password' placeholder='********'></Field>
-							<label>Repeat password:</label>
-							<ErrorMessage name='password2' component='span' />
-							<Field id='inputPassword2' name='password2' type='password' placeholder='********'></Field>
-							<button type='submit' className='button-login-submit'>Sign up</button>
-						</Form>
-					</Formik>
+					<div className='login_panel'>
+						<h2>Register new account</h2>
+						<Formik
+							initialValues={ initialValues }
+							onSubmit={ onSubmit }
+							validationSchema={ validationSchema }
+						>
+							<Form>
+								<label>Email:</label>
+								<ErrorMessage name='email' component='span' />
+								<Field id='inputEmail' name='email' placeholder='example@example.com'></Field>
+								<label>Username:</label>
+								<ErrorMessage name='username' component='span' />
+								<Field id='inputUsername' name='username'></Field>
+								<label>Password:</label>
+								<ErrorMessage name='password' component='span' />
+								<Field id='inputPassword' name='password' type='password' placeholder='********'></Field>
+								<label>Repeat password:</label>
+								<ErrorMessage name='password2' component='span' />
+								<span id='errorPasswd2'></span>
+								<Field id='inputPassword2' name='password2' type='password' placeholder='********'></Field>
+								<button type='submit' className='button-login-submit'>Sign up</button>
+							</Form>
+						</Formik>
+					</div>
 				</div>
 			</div>
 		</main>

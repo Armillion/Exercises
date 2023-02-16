@@ -34,24 +34,24 @@ function Login() {
 		<main>
 			<div className='wrapper-login'>
 				<div className='login_container'>
-					<h2>Login panel</h2>
-				</div>
-				<div className='login_container'>
-					<Formik
-						initialValues={ initialValues }
-						onSubmit={ onSubmit }
-						validationSchema={ validationSchema }
-					>
-						<Form>
-							<label>Username:</label>
-							<ErrorMessage name='username' component='span' />
-							<Field id='inputUsername' name='username'></Field>
-							<label>Password:</label>
-							<ErrorMessage name='password' component='span' />
-							<Field id='inputPassword' name='password' type='password' placeholder='********'></Field>
-							<button type='submit' className='button-login-submit'>Sign in</button>
-						</Form>
-					</Formik>
+					<div className='login_panel'>
+						<h2>Login panel</h2>
+						<Formik
+							initialValues={ initialValues }
+							onSubmit={ onSubmit }
+							validationSchema={ validationSchema }
+						>
+							<Form>
+								<label>Username:</label>
+								<ErrorMessage name='username' component='span' />
+								<Field id='inputUsername' name='username'></Field>
+								<label>Password:</label>
+								<ErrorMessage name='password' component='span' />
+								<Field id='inputPassword' name='password' type='password' placeholder='********'></Field>
+								<button type='submit' className='button-login-submit'>Sign in</button>
+							</Form>
+						</Formik>
+					</div>
 				</div>
 			</div>
 		</main>

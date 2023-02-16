@@ -4,8 +4,10 @@ function Registered() {
 	
 	return (
 		<main>
-			<p>Your account was succesfully registered!</p>
-			<p>You can now login using provided password.</p>
+			<div className='message'>
+				<p>Your account was succesfully registered!</p>
+				<p>You can now login using provided password.</p>
+			</div>
 		</main>
 	)
 }

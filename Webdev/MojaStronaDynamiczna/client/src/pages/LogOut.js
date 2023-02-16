@@ -6,11 +6,10 @@ import { useNavigate } from 'react-router-dom'
 function LogOut() {
 	
 	sessionStorage.removeItem('jwt')
-	window.location.href = '/'
 	
 	return (
 		<main>
-			You're succesfully logged out.
+			<p className='message'>You're succesfully logged out.</p>
 		</main>
 	)
 }
