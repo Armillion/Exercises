@@ -5,6 +5,8 @@ import Upload from './pages/Upload'
 import MyMemes from './pages/MyMemes'
 import LogOut from './pages/LogOut'
 import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import Registered from './pages/Registered';
 
 function App() {
 	
@@ -36,6 +38,9 @@ function App() {
 						) : (
 							<ul className="nar__menu_proper">
 								<li className="menu__item">
+									<Link to='sign-up' className="menu__links" id="signup">Sign up</Link>
+								</li>
+								<li className="menu__item">
 									<Link to='login' className="menu__links" id="login">Log in</Link>
 								</li>
 							</ul>
@@ -44,10 +49,12 @@ function App() {
 				</nav>
 				<Routes>
 					<Route path='/' exact element={<Home />} />
+					<Route path='/sign-up' exact element={<SignUp />} />
 					<Route path='/login' exact element={<Login />} />
 					<Route path='/upload' exact element={<Upload />} />
 					<Route path='/my-memes' exact element={<MyMemes />} />
 					<Route path='/log-out' exact element={<LogOut />} />
+					<Route path='/registered' exact element={<Registered />} />
 				</Routes>
 			</Router>
 			{/* Footer */}
@@ -56,22 +63,22 @@ function App() {
 					<div className="footer__link_wrapper">
 						<div className="footer__link_item">
 							<h2>About Us</h2>
-							<a href="/sign-up">How it works</a>
-							<a href="/sign-up">Terms of Service</a>
-							<a href="/sign-up">Careers</a>
-							<a href="/sign-up">Testimonials</a>
+							<a href="/">How it works</a>
+							<a href="/">Terms of Service</a>
+							<a href="/">Careers</a>
+							<a href="/">Testimonials</a>
 						</div>
 						<div className="footer__link_item">
 							<h2>Contact Us</h2>
-							<a href="/sign-up">Contact</a>
-							<a href="/sign-up">Destinations</a>
+							<a href="/">Contact</a>
+							<a href="/">Destinations</a>
 						</div>
 						<div className="footer__link_item">
 							<h2>Made by:</h2>
-							<a href="/sign-up">Patryk Wałaszek</a>
-							<a href="/sign-up">Jagiellonian University</a>
-							<a href="/sign-up">WWW Technics</a>
-							<a href="/sign-up">ALL RIGHTS RESERVED</a>
+							<a href="/">Patryk Wałaszek</a>
+							<a href="/">Jagiellonian University</a>
+							<a href="/">WWW Technics</a>
+							<a href="/">ALL RIGHTS RESERVED</a>
 						</div>
 					</div>
 				</div>

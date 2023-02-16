@@ -4,16 +4,6 @@ const { users } = require ('../models')
 const bcrypt = require ('bcrypt')
 const {sign} = require('jsonwebtoken')
 
-router.get('/hash/:password', async (req, res) => {
-	const password = req.params.password
-	bcrypt.hash (password, 10).then ((hash) => {
-		res.json ({
-			password: password,
-			hash: hash
-		})
-	})
-})
-
 router.post('/login', async (req, res) => {
 	const { username, password } = req.body
 	
@@ -51,6 +41,27 @@ router.post('/login', async (req, res) => {
 			message: 'Succesfully logged in',
 			jwt: access_token
 		})
+	})
+})
+
+router.post('/register', async (req, res) => {
+	const { username, email, password } = req.body
+	let password_hash = ''
+	
+	await bcrypt.hash (password, 10).then ((hash) => {
+		password_hash = hash
+	})
+	
+	const new_user = {
+		username: username,
+		email: email,
+		password_hash: password_hash
+	}
+	
+	await users.create(new_user)
+	
+	return res.json({
+		message: 'New user created succesfully'
 	})
 })
 

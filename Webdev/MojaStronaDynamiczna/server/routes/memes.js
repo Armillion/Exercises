@@ -7,7 +7,7 @@ const {verify} = require('jsonwebtoken')
 router.get('/', async (req, res) => {
 	const access_token = req.header('access_token')
 	
-	if (access_token) {
+	if (access_token != "null") {
 		
 		try {
 			const validToken = verify(access_token, "website_password")
@@ -39,6 +39,7 @@ router.get('/', async (req, res) => {
 		}
 		
 	} else {
+		
 		const memesArray = await memes.findAll ({
 			include: [{
 				model: upvotes,

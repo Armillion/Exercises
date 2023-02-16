@@ -236,6 +236,27 @@
   margin: 2px;
 }
 
+.login_container{
+  display: flex;
+  justify-content: center;
+}
+
+.login_container input, .login_container label{
+  display: block;
+  margin: 10px 0;
+}
+
+.login_container input{
+  background-color: #363636;
+  color: white;
+  padding: 16px 20px;
+}
+
+.login_container button {
+  width: 100%;
+  padding: 16px 20px;
+}
+
 @media screen and (max-width: 1000px) {
   .menu_container{
     display: flex;
