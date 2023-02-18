@@ -82,8 +82,4 @@ router.post('/upload', validateToken, async (req, res) => {
 	res.json(memeData)
 })
 
-router.get('/upvote/:id', async (req, res) => {
-	res.json()
-})
-
 module.exports = router

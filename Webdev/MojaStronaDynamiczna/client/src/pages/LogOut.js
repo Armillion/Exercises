@@ -5,7 +5,13 @@ import { useNavigate } from 'react-router-dom'
 
 function LogOut() {
 	
+	let navigate = useNavigate()
+	
 	sessionStorage.removeItem('jwt')
+	setTimeout(() => {
+		navigate('/')
+		window.location.reload()
+	}, "1000")
 	
 	return (
 		<main>
