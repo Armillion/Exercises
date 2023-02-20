@@ -9,12 +9,15 @@ class RandomQueue:
         self.items.append(item)
 
     def remove(self):   # zwraca losowy element w czasie O(1)
-        return self.items.pop(random.randrange(0,len(self.items)))
+        a = random.randrange(0,len(self.items))
+        b = self.items[-1]
+        self.items[-1] = self.items[a]
+        self.items[a] = b
+        return self.items.pop()
 
     def is_empty(self): return not self.items
 
     def is_full(self): return False # lista nie ma limitu miejsc
 
     def clear(self):   # czyszczenie listy
-        for item in self.items:
-            self.items.remove(item)
+        self.items = list()

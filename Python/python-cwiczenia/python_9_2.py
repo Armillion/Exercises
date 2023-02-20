@@ -29,16 +29,16 @@ class SingleList:
         if self.head == None:
             raise ValueError("List is empty!")
         elif self.head == self.tail:
-            a = self.head.data
-            del self.head
+            a = self.head
+            self.head = self.tail = None
             return a
         else:
             a = self.head
             while a.next != self.tail:
                 a = a.next
-            b = self.tail.data
+            b = self.tail
             self.tail = a
-            del a.next
+            a.next = None
             return b
 
     def join(self, other):   # klasy O(1)
@@ -65,37 +65,41 @@ class SingleList:
         if a == None:
             return a
 
-        while a != None or a.data != data:
+        while a != None:
+            if a.data == data:
+                return a
+            
             a = a.next
         return a
 
     def find_min(self):   # klasy O(n)
         # Zwraca łącze do węzła z najmniejszym kluczem lub None dla pustej listy.
         a = self.head
-        minimal = a
+        minimal = self.head
         while a != None and a.next != None:
             a = a.next
             if a.data < minimal.data:
                 minimal = a
-        return a
+        return minimal
 
     def find_max(self):   # klasy O(n)
         # Zwraca łącze do węzła z największym kluczem lub None dla pustej listy.
         a = self.head
         maximal = a
         while a != None:
-            a = a.next
             if a.data > maximal.data:
                 maximal = a
-        return a
+            a = a.next
+        return maximal
 
     def reverse(self):   # klasy O(n)
         # Odwracanie kolejności węzłów na liście.
-        a = None
-        b = self.head
-        while b != None:
-            next = b.next
-            b.next = a
-            a = b
-            b = next
-        self.head = a
+        prev = None
+        current = self.head
+        while(current is not None):
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.tail = self.head
+        self.head = prev

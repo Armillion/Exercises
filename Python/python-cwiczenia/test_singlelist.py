@@ -16,7 +16,7 @@ def test_remove_tail():
     list.add(2)
     list.add(3)
     assert list.tail.data == 3
-    list.remove_tail()
+    assert list.remove_tail().data == 3
     assert list.tail.data == 2
     
 def test_join():
@@ -37,7 +37,8 @@ def test_search():
     list1.add(1)
     list1.add(2)
     list1.add(3)
-    assert list1.search(4) == None
+    a = list1.search(4)
+    assert a == None
     assert list1.search(2).data == 2
     
 def test_find_min(): 
