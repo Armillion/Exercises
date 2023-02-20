@@ -46,11 +46,14 @@ class SingleList:
         # Po zakończeniu operacji lista other ma być pusta.
         if self.head == None:
             self.head = other.head
+            self.tail = other.tail
         elif other.head == None:
             return
         else:
             self.tail.next = other.head
             self.tail = other.tail
+        other.head = None
+        other.tail = None
 
     def clear(self):   # czyszczenie listy
         a = self.head

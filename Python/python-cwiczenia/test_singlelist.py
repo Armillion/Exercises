@@ -31,6 +31,7 @@ def test_join():
     assert list1.tail.data == 3
     list1.join(list2)
     assert list1.tail.data == 4
+    assert list2.head == None
     
 def test_search():
     list1 = SingleList()
