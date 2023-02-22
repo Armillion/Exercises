@@ -31,6 +31,7 @@ class Map():
                     block.meta = True
                     self.blocks.add(block)
     
+    # movement and collisions on x axis
     def horizontalMovement(self):
         player = self.player.sprite
         
@@ -59,6 +60,7 @@ class Map():
         if player.onRight and (player.rect.right > self.currentX or player.direction.x <= 0):
             player.onRight = False
     
+    # movement and collisions on y axis
     def verticalMovement(self):
         player = self.player.sprite
         
@@ -82,6 +84,7 @@ class Map():
             player.onCeiling = False
     
     # displays level
+    # updates player posision and collision
     def update(self):
         self.blocks.update(0)
         self.blocks.draw(self.display_surface)

@@ -1,4 +1,5 @@
 import pygame
+from os import path
 from support import importFolder
 
 class Player(pygame.sprite.Sprite):
@@ -21,14 +22,18 @@ class Player(pygame.sprite.Sprite):
         self.onLeft = False
         self.onRight = False
         
+    # import animation frames
     def impoerCharacterGraphics(self):
-        spritePath = 'graphics\\01-KingHuman\\'
+        # spritePath = path.join('platformer','graphics','01-KingHuman')
+        spritePath = path.join('graphics','01-KingHuman')
         self.animations = {'idle':[],'run':[],'jump':[],'fall':[]}
         
         for animation in self.animations.keys():
-            path = spritePath + animation
-            self.animations[animation] = importFolder(path)
-            
+            fpath = path.join(spritePath,animation)
+            self.animations[animation] = importFolder(fpath)
+         
+    # decides what animations to play
+    # plays set animation
     def runAnimation(self):
         if(self.direction.y > 0.8):
             animation = self.animations['fall']
@@ -86,6 +91,7 @@ class Player(pygame.sprite.Sprite):
         if self.Grounded:
                 self.direction.y = self.jumpForce
             
+    # updates input and animation frames
     def update(self):
         self.getInput()
         self.runAnimation()

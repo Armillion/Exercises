@@ -1,5 +1,8 @@
-# how our level looks
-# we will use that to place actual tiles
+# how our levels look
+# we will use that to place actual blocks
+# X = block
+# P = player character
+# M = finish line
 level_layout = [
     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     'X                                    X',
@@ -41,9 +44,10 @@ level_layout2 = [
     'X      X        X   X   X    X    P  X',
     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 ]
+
 tile_size = 32
 levels = [level_layout,level_layout1,level_layout2]
 
 # user settings and preferences
-screen_height = 1200
+screen_height = len(level_layout[0]) * tile_size
 screen_width = len(level_layout) * tile_size
