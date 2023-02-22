@@ -4,7 +4,7 @@ from settings import *
 from tile import Block
 from level import Map
 from support import importFolder
-
+from os import path
 
 # pygame init
 pygame.init()
@@ -15,7 +15,8 @@ clock = pygame.time.Clock()
 level = Map(levels[0],screen,0)
 
 # background image
-bg_img = pygame.image.load('platformer\\graphics\\background.png')
+# bg_img = pygame.image.load(path.join('platformer','graphics','background.png'))
+bg_img = pygame.image.load(path.join('graphics','background.png'))
 bg_img = pygame.transform.scale(bg_img,(screen_height,screen_width))
 rect = bg_img.get_rect()
 
